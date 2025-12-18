@@ -20,6 +20,7 @@ Config.minDuration = 5000
 Config.maxDuration = 10000
 
 Config.canCancel = true
+Config.cancelKey = 'escape'
 
 Config.useWhileDead = false 
 
