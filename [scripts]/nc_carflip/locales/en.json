@@ -9,6 +9,7 @@
         "no_vehicle": "No vehicle nearby!",
         "too_far": "You need to be closer to the vehicle!",
         "already_upright": "The vehicle is already on its wheels!",
-        "skill_fail": "You failed to flip the vehicle!"
+        "skill_fail": "You failed to flip the vehicle!",
+        "call_mechanic": "Call a mechanic to flip your vehicle!"
     }
 }

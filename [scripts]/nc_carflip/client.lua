@@ -32,14 +32,35 @@ CreateThread(function()
         
         -- Register /flip command
         RegisterCommand('flip', function()
-            if not HasPermission() then return end
+            if not HasPermission() then 
+                -- Add notification for non-mechanics
+                if Config.whitelisted and PlayerJob and PlayerJob.name ~= Config.whitelistedJob then
+                    lib.notify({
+                        title = locale('notify.title'),
+                        description = locale('notify.call_mechanic'),
+                        type = 'inform',
+                        duration = 8000 -- Duration in milliseconds (8000ms = 8 seconds)
+                    })
+                end
+                return 
+            end
             FlipCarOver()
         end, false)
         
         -- Also allow the original event for compatibility
         RegisterNetEvent('nc_carflip:flipcar')
         AddEventHandler('nc_carflip:flipcar', function()
-            if not HasPermission() then return end
+            if not HasPermission() then 
+                -- Add notification for non-mechanics
+                if Config.whitelisted and PlayerJob and PlayerJob.name ~= Config.whitelistedJob then
+                    lib.notify({
+                        title = locale('notify.title'),
+                        description = locale('notify.call_mechanic'),
+                        type = 'inform'
+                    })
+                end
+                return 
+            end
             FlipCarOver()
         end)
 
@@ -58,14 +79,34 @@ CreateThread(function()
         
         -- Register /flip command
         RegisterCommand('flip', function()
-            if not HasPermission() then return end
+            if not HasPermission() then 
+                -- Add notification for non-mechanics
+                if Config.whitelisted and PlayerJob and PlayerJob.name ~= Config.whitelistedJob then
+                    lib.notify({
+                        title = locale('notify.title'),
+                        description = locale('notify.call_mechanic'),
+                        type = 'inform'
+                    })
+                end
+                return 
+            end
             FlipCarOver()
         end, false)
         
         -- Also allow the original event for compatibility
         RegisterNetEvent('nc_carflip:flipcar')
         AddEventHandler('nc_carflip:flipcar', function()
-            if not HasPermission() then return end
+            if not HasPermission() then 
+                -- Add notification for non-mechanics
+                if Config.whitelisted and PlayerJob and PlayerJob.name ~= Config.whitelistedJob then
+                    lib.notify({
+                        title = locale('notify.title'),
+                        description = locale('notify.call_mechanic'),
+                        type = 'inform'
+                    })
+                end
+                return 
+            end
             FlipCarOver()
         end)
     end
@@ -107,7 +148,8 @@ function HasPermission()
         lib.notify({
             title = locale('notify.title'),
             description = locale('notify.no_permission'),
-            type = 'error'
+            type = 'error',
+            duration = 8000 -- Duration in milliseconds (8000ms = 8 seconds)
         })
         return false
     end
@@ -115,7 +157,18 @@ end
 
 -- Main function to flip the car
 function FlipCarOver()
-    if not HasPermission() then return end
+    if not HasPermission() then 
+        -- Add notification for non-mechanics
+        if Config.whitelisted and PlayerJob and PlayerJob.name ~= Config.whitelistedJob then
+            lib.notify({
+                title = locale('notify.title'),
+                description = locale('notify.call_mechanic'),
+                type = 'inform',
+                duration = 8000 -- Duration in milliseconds (8000ms = 8 seconds)
+            })
+        end
+        return 
+    end
     
     local ped = PlayerPedId()
     local pedcoords = GetEntityCoords(ped)
