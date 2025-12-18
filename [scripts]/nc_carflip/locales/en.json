@@ -1,0 +1,14 @@
+{
+    "notify": {
+        "title": "Car Flip",
+        "desc": "Vehicle flipped successfully!",
+        "fail": "Vehicle is already on its wheels.",
+        "fliping": "Flipping vehicle...",
+        "no_permission": "You need to be a mechanic to flip vehicles!",
+        "no_grade": "You need a higher mechanic grade to flip vehicles!",
+        "no_vehicle": "No vehicle nearby!",
+        "too_far": "You need to be closer to the vehicle!",
+        "already_upright": "The vehicle is already on its wheels!",
+        "skill_fail": "You failed to flip the vehicle!"
+    }
+}
